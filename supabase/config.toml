@@ -1,0 +1,5 @@
+project_id = "yangjae-escape"
+
+[functions.escape-game]
+# The function implements its own member-session token authentication.
+verify_jwt = false

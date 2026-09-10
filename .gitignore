@@ -1,0 +1,7 @@
+.sites-runtime/
+.env*
+!.env.example
+.DS_Store
+node_modules/
+test-results/
+*.zip
