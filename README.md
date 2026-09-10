@@ -16,33 +16,35 @@
 ## 연결 상태
 
 - 기존 SCM Supabase 프로젝트: 사용하지 않음 / 변경 없음
-- GitHub 원격 저장소: [left3steps/yangjae-escape](https://github.com/left3steps/yangjae-escape) 비공개 저장소 연결 완료
-- Cloudflare 공개 배포: 로그인 대기 / 배포용 ZIP 준비 완료
+- GitHub 원격 저장소: [left3steps/yangjae-escape](https://github.com/left3steps/yangjae-escape) 저장소 연결 완료 / 공개 전환 준비
+- GitHub Pages 공개 배포: 앱 경로와 자동 배포 파일 준비 완료 / GitHub 웹 로그인 대기
 - 새 Supabase 계정: `lockspot` Free / 서울 지역 연결 완료
 - 1인 체험: 외부 계정 없이 실행 가능
 - 온라인 팀 기능: 실제 Supabase 배포와 앱 연결 완료. 서버에서 팀 생성·참가, 두 참가자 동기화, 동시 제출, 5단계 완주를 검증함. **여러 휴대폰의 브라우저 연결 시험은 아직 하지 않음**
 
-현재 팀 플레이 허용 주소는 `http://localhost:4173`입니다. 공개 배포 후 최종 주소를 추가해야 다른 기기에서도 사용할 수 있습니다. 새 프로젝트 주소는 `https://joeevpnzcgsghuahsnhs.supabase.co`입니다.
+팀 플레이 허용 주소는 `http://localhost:4173`과 `https://left3steps.github.io`입니다. GitHub Pages 배포가 완료되면 다른 기기에서도 사용할 수 있습니다. 새 프로젝트 주소는 `https://joeevpnzcgsghuahsnhs.supabase.co`입니다.
 
-Supabase는 새 계정의 조직으로 분리합니다. GitHub는 사용자의 최신 선택에 따라 기존 `left3steps` 계정 안에 별도 저장소를 사용합니다. 기존 SCM 데이터베이스에는 변경하지 않았습니다.
+Supabase는 새 계정의 조직으로 분리합니다. GitHub는 사용자의 최신 선택에 따라 기존 `left3steps` 계정 안에 별도 저장소를 사용하고, 사용자의 공개 요청에 따라 GitHub Pages로 배포합니다. 기존 SCM 데이터베이스에는 변경하지 않았습니다.
 
 ## 로컬 실행
 
-Node.js 24 이상에서 `node serve.mjs`를 실행하면 `http://localhost:4173`에서 열립니다. 이 주소는 실행 중인 컴퓨터에서만 사용합니다. 앱 실행 자체에는 패키지 설치가 필요하지 않습니다. `dist` 폴더를 정적 웹 호스팅에 올려도 동일하게 작동합니다.
+Node.js 24 이상에서 `node serve.mjs`를 실행하면 `http://localhost:4173`에서 열립니다. 이 주소는 실행 중인 컴퓨터에서만 사용합니다. 앱 실행 자체에는 패키지 설치가 필요하지 않습니다. `dist` 폴더를 정적 웹 호스팅에 올려도 동일하게 작동합니다. 파일 경로와 오프라인 저장 범위는 루트 및 `/yangjae-escape/` 같은 하위 경로를 모두 지원합니다.
 
 서버를 종료하면 로컬 접속은 중단되지만 브라우저에 저장한 진행은 유지됩니다. 다시 실행한 뒤 같은 주소로 접속하면 이어갈 수 있습니다.
 
 ## 무료 공개 배포
 
-Cloudflare Pages에 배포할 때:
+사용자의 최신 선택은 **GitHub 공개 저장소 + GitHub Pages + Supabase Free**입니다. 별도 도메인 구매나 Cloudflare 가입이 필요하지 않습니다.
 
-1. 새 서비스용 계정으로 로그인합니다.
-2. 직접 업로드 방식이면 배포용 ZIP 안의 파일을 올립니다. ZIP의 최상위에 `index.html`이 있어야 합니다.
-3. GitHub 연동 방식이면 기존 `left3steps` 계정의 **별도 비공개 저장소**에 이 프로젝트를 올리고 연결합니다. 빌드 명령은 비워두고 출력 디렉터리는 `dist`로 설정합니다.
-4. 기본 제공되는 `pages.dev` 주소를 사용합니다. 도메인 구입은 필요 없습니다.
-5. Supabase를 연결하지 않아도 1인 사전 체험은 배포 즉시 동작합니다.
+1. GitHub 저장소 `left3steps/yangjae-escape`를 공개로 전환합니다.
+2. 저장소 Settings → Pages → Build and deployment → Source에서 GitHub Actions를 선택합니다.
+3. `main`에 올리면 `.github/workflows/pages.yml`이 파일을 검증하고 `dist` 폴더만 배포합니다. 관리자 키나 별도 배포 토큰은 필요하지 않습니다.
+4. 기본 공개 주소는 `https://left3steps.github.io/yangjae-escape/`입니다. 실제 배포 성공 전에는 접속할 수 없습니다.
+5. 로컬 주소에서 저장한 진행은 공개 주소로 자동 이동하지 않습니다. 공개 주소에서 새로 시작하거나 팀에 참가합니다.
 
-무료 플랜만 사용하며 유료 업그레이드나 종량제 상품을 켜지 않습니다. 각 서비스의 무료 한도가 바뀌거나 소진되면 운영을 제한하거나 구성을 조정합니다. 무제한 무료 운영을 보장하지는 않습니다.
+현재는 무료 사전 체험판입니다. GitHub Pages는 온라인 사업·전자상거래·상업용 SaaS 운영에 제한이 있으므로 향후 유료 서비스로 전환할 때 호스팅을 다시 검토합니다. 각 서비스의 무료 한도가 소진되면 운영을 제한하거나 구성을 조정합니다. 유료 업그레이드나 종량제 상품은 켜지 않습니다.
+
+공개 저장소에는 앱 소스와 사전 체험용 정답이 포함됩니다. Supabase 관리자 키와 데이터베이스 비밀번호는 포함하지 않습니다. 소스 공개가 별도 오픈소스 라이선스 부여를 의미하지는 않습니다.
 
 ## 새 Supabase 계정 연결
 
@@ -51,7 +53,7 @@ Cloudflare Pages에 배포할 때:
 1. 새 계정에서 무료 조직/프로젝트를 만듭니다. 요금이 0원인지 확인하고, 실제 플레이 장소와 가까운 서울 리전을 선택합니다.
 2. SQL Editor에서 `supabase/setup.sql`을 한 번 실행합니다. 이미 만들어진 테이블을 덮어쓰는 재실행용 스크립트가 아닙니다.
 3. `supabase/functions/escape-game/index.ts`를 `escape-game` Edge Function으로 배포합니다. 이 함수는 자체 참가 토큰을 검증하므로 해당 함수에 한해 JWT 검증을 끕니다. `supabase/config.toml`에 설정돼 있습니다.
-4. 함수의 환경 변수 `ALLOWED_ORIGINS`에 실제 Pages URL을 지정합니다. 로컬도 허용하려면 쉼표로 구분해 `http://localhost:4173`을 추가합니다. 각 주소 뒤에 `/`를 붙이지 않습니다.
+4. 함수의 환경 변수 `ALLOWED_ORIGINS`에 실제 접속 주소의 origin을 지정합니다. GitHub Pages는 경로를 뺀 `https://left3steps.github.io`를 사용합니다. 로컬도 허용하려면 쉼표로 구분해 `http://localhost:4173`을 추가합니다. 각 주소 뒤에 `/`를 붙이지 않습니다.
 5. `dist/config.js`의 `supabaseUrl`과 `publishableKey`에 새 프로젝트 주소와 **공개용 publishable key**를 넣습니다. 관리자 키는 이 파일에 넣지 않습니다.
 6. `dist/sw.js`의 캐시 버전을 올린 뒤 정적 앱을 다시 배포합니다.
 7. 두 휴대폰에서 팀 생성/참가, 팀원별 단서, 정답 동기화, 새로고침 복귀를 시험합니다. 공개 주소는 HTTPS여야 합니다.
