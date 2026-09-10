@@ -16,8 +16,8 @@
 ## 연결 상태
 
 - 기존 SCM Supabase 프로젝트: 사용하지 않음 / 변경 없음
-- GitHub 원격 저장소: 기존 `left3steps` 계정에 별도 비공개 저장소로 연결 예정
-- Cloudflare 공개 배포: 아직 진행하지 않음
+- GitHub 원격 저장소: [left3steps/yangjae-escape](https://github.com/left3steps/yangjae-escape) 비공개 저장소 연결 완료
+- Cloudflare 공개 배포: 로그인 대기 / 배포용 ZIP 준비 완료
 - 새 Supabase 계정: `lockspot` Free / 서울 지역 연결 완료
 - 1인 체험: 외부 계정 없이 실행 가능
 - 온라인 팀 기능: 실제 Supabase 배포와 앱 연결 완료. 서버에서 팀 생성·참가, 두 참가자 동기화, 동시 제출, 5단계 완주를 검증함. **여러 휴대폰의 브라우저 연결 시험은 아직 하지 않음**
