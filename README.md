@@ -2,6 +2,8 @@
 
 양재천 야외 방탈출 스토리를 바탕으로 만든 모바일 웹앱입니다. 추가 유료 API, 상용 소재, 유료 호스팅 없이 시작하도록 설계했습니다.
 
+**[공개 체험판 시작하기](https://left3steps.github.io/yangjae-escape/)**
+
 ## 지금 가능한 것
 
 - 5개 자물쇠와 완결된 엔딩: 사진 조각 → 촬영 위치 → 녹음 순서 → 경로 선택 → 원본 검증
@@ -16,13 +18,13 @@
 ## 연결 상태
 
 - 기존 SCM Supabase 프로젝트: 사용하지 않음 / 변경 없음
-- GitHub 원격 저장소: [left3steps/yangjae-escape](https://github.com/left3steps/yangjae-escape) 저장소 연결 완료 / 공개 전환 준비
-- GitHub Pages 공개 배포: 앱 경로와 자동 배포 파일 준비 완료 / GitHub 웹 로그인 대기
+- GitHub 원격 저장소: [left3steps/yangjae-escape](https://github.com/left3steps/yangjae-escape) 공개 전환 완료
+- GitHub Pages 공개 배포: [공개 주소](https://left3steps.github.io/yangjae-escape/) 배포 완료 / `main` 변경 시 자동 갱신
 - 새 Supabase 계정: `lockspot` Free / 서울 지역 연결 완료
 - 1인 체험: 외부 계정 없이 실행 가능
 - 온라인 팀 기능: 실제 Supabase 배포와 앱 연결 완료. 서버에서 팀 생성·참가, 두 참가자 동기화, 동시 제출, 5단계 완주를 검증함. **여러 휴대폰의 브라우저 연결 시험은 아직 하지 않음**
 
-팀 플레이 허용 주소는 `http://localhost:4173`과 `https://left3steps.github.io`입니다. GitHub Pages 배포가 완료되면 다른 기기에서도 사용할 수 있습니다. 새 프로젝트 주소는 `https://joeevpnzcgsghuahsnhs.supabase.co`입니다.
+팀 플레이 허용 주소는 `http://localhost:4173`과 `https://left3steps.github.io`입니다. 공개 주소를 통해 다른 기기에서도 사용할 수 있습니다. 새 프로젝트 주소는 `https://joeevpnzcgsghuahsnhs.supabase.co`입니다.
 
 Supabase는 새 계정의 조직으로 분리합니다. GitHub는 사용자의 최신 선택에 따라 기존 `left3steps` 계정 안에 별도 저장소를 사용하고, 사용자의 공개 요청에 따라 GitHub Pages로 배포합니다. 기존 SCM 데이터베이스에는 변경하지 않았습니다.
 
@@ -39,7 +41,7 @@ Node.js 24 이상에서 `node serve.mjs`를 실행하면 `http://localhost:4173`
 1. GitHub 저장소 `left3steps/yangjae-escape`를 공개로 전환합니다.
 2. 저장소 Settings → Pages → Build and deployment → Source에서 GitHub Actions를 선택합니다.
 3. `main`에 올리면 `.github/workflows/pages.yml`이 파일을 검증하고 `dist` 폴더만 배포합니다. 관리자 키나 별도 배포 토큰은 필요하지 않습니다.
-4. 기본 공개 주소는 `https://left3steps.github.io/yangjae-escape/`입니다. 실제 배포 성공 전에는 접속할 수 없습니다.
+4. 공개 주소는 `https://left3steps.github.io/yangjae-escape/`입니다. 2026-09-11 첫 배포를 완료했습니다.
 5. 로컬 주소에서 저장한 진행은 공개 주소로 자동 이동하지 않습니다. 공개 주소에서 새로 시작하거나 팀에 참가합니다.
 
 현재는 무료 사전 체험판입니다. GitHub Pages는 온라인 사업·전자상거래·상업용 SaaS 운영에 제한이 있으므로 향후 유료 서비스로 전환할 때 호스팅을 다시 검토합니다. 각 서비스의 무료 한도가 소진되면 운영을 제한하거나 구성을 조정합니다. 유료 업그레이드나 종량제 상품은 켜지 않습니다.
@@ -82,6 +84,8 @@ Node.js 24 이상에서 `node serve.mjs`를 실행하면 `http://localhost:4173`
 검증 범위: 전체 5단계 완주, 저장 복구, 중복 제출, 미래 단계 건너뛰기 방지, 팀별 분리, 동시 제출, 인원 제한, 만료, 직접 데이터 접근 차단, 정적 파일과 오프라인 파일 참조.
 
 실제 서버에서도 두 참가자의 생성·참가·상태 동기화, 동시 제출의 중복 진행 방지, 5단계 완주, 뒤늦은 참가 차단, 잘못된 참가 정보 거부, 허용 주소 검사와 사전 요청 처리, 공개 키로 테이블·함수 직접 접근 차단을 확인했습니다. 시험용 팀과 참가자는 검증 후 삭제했습니다.
+
+2026-09-11 GitHub Pages 배포 성공, HTTPS 공개 주소 응답, 배포 파일 15개의 원본 일치, JavaScript·PWA 파일 형식, 공개 주소에서 팀 API로 보내는 사전 요청 허용을 확인했습니다.
 
 브라우저 UI/실기기 현장 QA는 아직 수행하지 않았습니다. WebMCP 상태 읽기 도구는 지원 브라우저에서만 선택적으로 등록하며, 해당 브라우저 실행 검증은 미실시입니다.
 
